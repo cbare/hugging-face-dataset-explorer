@@ -11,5 +11,8 @@ To run the api:
 
 >> http http://127.0.0.1:8000
 
+We also get nice [API docs][2].
+
 
 [1]: https://huggingface.co/datasets/medical_questions_pairs
+[2]: http://127.0.0.1:8000/docs

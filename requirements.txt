@@ -1,1 +1,2 @@
+datasets~=2.4.0
 fastapi[all]~=0.79.0
