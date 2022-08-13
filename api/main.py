@@ -2,12 +2,14 @@
 Entry point for the API.
 """
 from fastapi import FastAPI, HTTPException
+from mangum import Mangum
 
 from api.__version__ import __version__
 from api.datasets import datasets_by_name
 
-app = FastAPI()
 
+app = FastAPI()
+handler = Mangum(app)
 
 @app.get("/")
 async def root():
@@ -21,9 +23,11 @@ async def root():
         ]
     }
 
+
 @app.get("/datasets")
 async def list_datasets():
     return datasets_by_name
+
 
 @app.get("/dataset/{builder_name}")
 async def get_dataset(builder_name):
