@@ -7,20 +7,37 @@ Demo using the dataset [medical_questions_pairs][1], a semantic similarity datas
 
 To run the api:
 
->> uvicorn api.main:app --reload
+```sh
+uvicorn api.main:app --reload
+```
 
->> http http://127.0.0.1:8000
+```sh
+http http://127.0.0.1:8000
+```
 
 We also get nice [API docs][2].
 
-## Docker
+### Tests
 
+To run tests:
+
+```sh
+PYTHONPATH=. pytest -v --cov=api tests/
+```
+
+### Docker
+
+To build the docker image:
+
+```sh
 docker build --tag hugging-face-dataset-explorer:latest .
+```
 
-docker tag hugging-face-dataset-explorer:latest 017619365500.dkr.ecr.us-west-2.amazonaws.com/hugging-face-dataset-explorer:latest
+We'll deploy a Docker container to AWS lambda, so we have to push our container image to an AWS container repo (ECR):
 
-docker push 017619365500.dkr.ecr.us-west-2.amazonaws.com/hugging-face-dataset-explorer:latest
-
+```sh
+./deploy.sh
+```
 
 [1]: https://huggingface.co/datasets/medical_questions_pairs
 [2]: http://127.0.0.1:8000/docs
