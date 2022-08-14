@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from mangum import Mangum
 
 from api.__version__ import __version__
-from api.datasets import dataset_infos_by_name, dataset_search
+from api.datasets import dataset_infos_by_name, dataset_search, indexer_conf
 
 
 app = FastAPI()
@@ -20,6 +20,7 @@ async def root():
             {"rel": "self", "href": "/"},
             {"rel": "datasets", "href": "/datasets"},
             {"rel": "dataset", "href": "/datasets/{builder_name}"},
+            {"rel": "search", "href": "/search/{builder_name}?q={query}"},
         ]
     }
 
@@ -40,6 +41,8 @@ async def get_dataset(builder_name: str):
 async def search(builder_name: str, q: str=None, top: int=10):
     if builder_name not in dataset_infos_by_name:
         raise HTTPException(status_code=404, detail=f'Dataset "{builder_name}" not found.')
+    if builder_name not in indexer_conf:
+        raise HTTPException(status_code=501, detail=f'Search index for "{builder_name}" not implemented.')
 
     return {
         "query": q,
