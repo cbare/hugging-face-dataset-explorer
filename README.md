@@ -40,9 +40,9 @@ http "https://wi4cfo42pfyjgalamfvtr7bwwe0kzdjt.lambda-url.us-west-2.on.aws/searc
 
 ### Note on latency
 
-The API is deployed on AWS Lambda and is therefore subject to coldstart latency. I load dataset metadata when the app loads and build a tfidf search index when first queried which is probably not an ideal fit for Lambda, were it not for my natural cheapness. A higher performace tier or provisioned capacity would be enough to overcome this issue, but doing the indexing in a dedicated service would be preferred for a non-toy project.
+The API is deployed on AWS Lambda and is therefore subject to coldstart latency. I load dataset metadata when the app loads and build a tfidf search index when first queried which is probably not an ideal fit for Lambda, were it not for my natural cheapness. A higher performance tier or provisioned capacity would likely be enough to overcome this issue, but doing the indexing in a dedicated service would be preferred for non-toy projects.
 
-The API may time out on first access, but it fairly snappy after that.
+The API may time out on first access, but it's fairly snappy after that.
 
 ### Tools
 
@@ -57,14 +57,14 @@ The API may time out on first access, but it fairly snappy after that.
 
 ## Development
 
-To run the api:
+To run the api locally:
 
 ```sh
 uvicorn api.main:app --reload
 ```
 
 ```sh
-http http://127.0.0.1:8000
+http localhost:8000
 ```
 
 We also get nice [API docs][2].
@@ -98,5 +98,5 @@ Build the docker container image and push:
 ```
 
 [1]: https://huggingface.co/datasets/medical_questions_pairs
-[2]: https://wi4cfo42pfyjgalamfvtr7bwwe0kzdjt.lambda-url.us-west-2.on.aws/docs
+[2]: http://localhost:8000/docs
 [3]: https://httpie.io/
