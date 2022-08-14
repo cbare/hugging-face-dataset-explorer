@@ -1,5 +1,8 @@
 boto3~=1.24.51
 botocore~=1.27.51
-datasets~=2.4.0
+datasets[s3]~=2.4.0
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.4.0/en_core_web_sm-3.4.0-py3-none-any.whl
 fastapi[all]~=0.79.0
 mangum~=0.15.1
+scikit-learn~=1.1.2
+spacy~=3.4.1

@@ -33,7 +33,13 @@ To build the docker image:
 docker build --tag hugging-face-dataset-explorer:latest .
 ```
 
-We'll deploy a Docker container to AWS lambda, so we have to push our container image to an AWS container repo (ECR):
+We'll deploy a Docker container to AWS lambda, so we have to push our container image to an AWS container repo (ECR). First authenticate with ECR if necessary:
+
+```sh
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 017619365500.dkr.ecr.us-west-2.amazonaws.com
+```
+
+Build the docker container image and push:
 
 ```sh
 ./deploy.sh
