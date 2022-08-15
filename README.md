@@ -11,19 +11,19 @@ There are 4 endpoints, each demonstrated below using [httpie][3]:
 ### Top level welcome message and info
 
 ```sh
-http "https://wi4cfo42pfyjgalamfvtr7bwwe0kzdjt.lambda-url.us-west-2.on.aws"
+http "https://xn5plniugtbupqbgrpftcjwuxi0jpgln.lambda-url.us-west-2.on.aws"
 ```
 
 ### List available datasets
 
 ```sh
-http "https://wi4cfo42pfyjgalamfvtr7bwwe0kzdjt.lambda-url.us-west-2.on.aws/datasets"
+http "https://xn5plniugtbupqbgrpftcjwuxi0jpgln.lambda-url.us-west-2.on.aws/datasets"
 ```
 
 ### Show dataset info for a single dataset
 
 ```sh
-http "https://wi4cfo42pfyjgalamfvtr7bwwe0kzdjt.lambda-url.us-west-2.on.aws/dataset/medical_questions_pairs"
+http "https://xn5plniugtbupqbgrpftcjwuxi0jpgln.lambda-url.us-west-2.on.aws/dataset/medical_questions_pairs"
 ```
 
 ### Search within dataset documents
@@ -31,11 +31,11 @@ http "https://wi4cfo42pfyjgalamfvtr7bwwe0kzdjt.lambda-url.us-west-2.on.aws/datas
 Search for dataset documents matching keywords in the query string.
 
 ```sh
-http "https://wi4cfo42pfyjgalamfvtr7bwwe0kzdjt.lambda-url.us-west-2.on.aws/search/medical_questions_pairs?q=lisinopril"
+http "https://xn5plniugtbupqbgrpftcjwuxi0jpgln.lambda-url.us-west-2.on.aws/search/medical_questions_pairs?q=lisinopril"
 ```
 
 ```sh
-http "https://wi4cfo42pfyjgalamfvtr7bwwe0kzdjt.lambda-url.us-west-2.on.aws/search/medical_questions_pairs?q=hazardous"
+http "https://xn5plniugtbupqbgrpftcjwuxi0jpgln.lambda-url.us-west-2.on.aws/search/medical_questions_pairs?q=hazardous"
 ```
 
 ### Note on latency
